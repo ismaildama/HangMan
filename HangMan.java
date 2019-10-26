@@ -19,79 +19,74 @@ public HangMan(){
      System.out.println("                O                                  ");
      System.out.println("               /|\\                                ");
      System.out.println("               / \\                                "); 
-     System.out.println("----------------------------------------------------");           
+     System.out.println("----------------------------------------------------");  
+	
   while(true){
  
-  System.out.print("First player name is: ");
-     first_player = s.nextLine();
-  System.out.print("Second player name is: ");
-     second_player  = s.nextLine();
-  System.out.println("------------------------------------------------------");
-  
-   phrase = (JOptionPane.showInputDialog(first_player+ " insert the secret word!")).toLowerCase();
-   output = getNumber(phrase.length());
-    System.out.println("The phrase was inserted succesfully!");
+	  System.out.print("First player name is: ");
+	     first_player = s.nextLine();
+	  System.out.print("Second player name is: ");
+	     second_player  = s.nextLine();
+	  System.out.println("------------------------------------------------------");
 
-    while(true){
-    System.out.println("----------------------------------------------------");
-     paintErrors(errors);
-  
-    System.out.print("Word: ");printCharArray(output);System.out.println("					 |Errors: "+errors);
- 
-     if(errors==6){
-     	System.out.println("Player "+first_player+" won!");
-     	break;
+	   phrase = (JOptionPane.showInputDialog(first_player+ " insert the secret word!")).toLowerCase();
+	   output = getNumber(phrase.length());
+	    System.out.println("The phrase was inserted succesfully!");
 
-     }else if(!areLeft(output)){
+	    while(true){
+	    
+	    System.out.println("----------------------------------------------------");
+	     paintErrors(errors);
 
-     	System.out.println("Player "+second_player+" won!");
-     	break;
+	    System.out.print("Word: ");printCharArray(output);System.out.println("					 |Errors: "+errors);
 
-     }
+	     if(errors==6){
+		System.out.println("Player "+first_player+" won!");
+		break;
 
-   
-  System.out.print("The character is: ");
-  input = s.nextLine();
+	     }else if(!areLeft(output)){
 
-    if(input.length()>1)
-         System.out.println("Please insert only one character!");
-    else
-    {
-    	answer = input.charAt(0);
+		System.out.println("Player "+second_player+" won!");
+		break;
 
-      if(!findCharacters(answer,phrase,output)){
-         
-          errors++;
-          System.out.println("Nope! Try again next time!");  
-      }
-       else
-       	 System.out.println("Well Done!");
+	     }
 
 
+	  System.out.print("The character is: ");
+	  input = s.nextLine();
+
+	    if(input.length()>1)
+		 System.out.println("Please insert only one character!");
+	    else
+	    {
+		answer = input.charAt(0);
+
+	      if(!findCharacters(answer,phrase,output)){
+
+		  errors++;
+		  System.out.println("Nope! Try again next time!");  
+	      }
+	       else
+		 System.out.println("Well Done!");
 
 
-    }
-//Cycle for errors
-}
-      System.out.println("Do you want to play again?(yes/no)");
-      System.out.print("Answer: ");
-      String f = (s.nextLine()).toLowerCase();
 
-       if(f.equals("no"))
-    	break;
+
+	    }
+	//Cycle for errors
+	}
+	      System.out.println("Do you want to play again?(yes/no)");
+	      System.out.print("Answer: ");
+	      String f = (s.nextLine()).toLowerCase();
+
+	       if(f.equals("no"))
+		break;
 
 
  }
-
-
-
-
-
-
-
   
-
 }
+	
 public void printCharArray(char[]c){
 	for(char x : c)
 		System.out.print(x+"");
@@ -117,8 +112,7 @@ public boolean findCharacters(char c,String in,char[] out){
     	out[i] = c;
 
     }
-     
-
+  
   }
 
 
@@ -133,6 +127,7 @@ public char[] getNumber(int nr){
 
 	return s;
 }
+	
 public void paintErrors(int errors){
   
       switch(errors){
@@ -158,7 +153,6 @@ public void paintErrors(int errors){
                  break;
       }
 }
-
 
 
 }
