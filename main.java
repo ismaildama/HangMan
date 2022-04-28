@@ -1,13 +1,6 @@
-class main{
+class main {
 
-
-public static void main(String[]args){
-
-	HangMan h = new HangMan();
-	
-	
-
-}
-
-
+    public static void main(String[] args) {
+        HangMan h = new HangMan();
+    }
 }
